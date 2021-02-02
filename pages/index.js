@@ -5,6 +5,26 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 
+
+const stack = ['https://wa.me/5562981613459', 'https://wa.me/5562981113519', 'https://wa.me/5562982213232'];
+var num = 0;
+
+export default function redirect(req, res) {
+    if(num<(stack.length-1)){
+        num++;
+        console.log('ok');
+    }else{
+        console.log('repeat');
+        num=0;
+    }
+    var temp = stack[num];
+    return res.redirect(`${temp}`);
+    //return res.json(users);
+};
+
+redirect();
+
+/*
 const Title = styled.h1`
   font-size: 50px;
   color: ${({ theme }) => theme.colors.primary};
@@ -58,3 +78,5 @@ export default function Home() {
     
   )
 }
+
+*/
